@@ -1,0 +1,249 @@
+/* Cards estilos CSS */
+
+/* Paleta de colores:
+    -#3e31fa
+    -#0f2145
+    -#f3f5f8
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: #ffffff;
+
+}
+
+/* --------------------------------------------- */
+/* Header bar styles */
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f3f5f8;
+    padding: 20px 10%;
+    border-block-end: 1.8px solid rgba(15, 33, 69, 0.1)
+}
+
+.logo {
+    font-family: 'Brown', sans-serif;
+    font-size: larger;
+    margin-right: auto;
+    color: #0f2145;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+}
+
+.logo:hover {
+    color: #3e31fa;
+    transform: scale(1.1);
+}
+
+
+/* Menu icons */
+header ul {
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    list-style: none;
+}
+
+.menu a {
+    color: #0f2145;
+    text-decoration: none;
+}
+
+.menu i {
+    font-size: 18px;
+}
+  
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.menu a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+  
+.menu a span {
+    transition: transform 0.2s ease-out;
+}
+  
+.menu a span:first-child {
+    display: inline-block;
+    padding: 5px 30px;
+}
+  
+.menu a span:last-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);
+}
+  
+.menu a:hover span:first-child {
+    transform: translateY(100%);
+}
+  
+.menu a:hover span:last-child, .menu[data-animation] a:hover span:last-child {
+    transform: none;
+}
+  
+/* Animations */
+.menu[data-animation="to-top"] a span:last-child {
+    transform: translateY(100%);
+}
+  
+.menu[data-animation="to-top"] a:hover span:first-child {
+    transform: translateY(-100%);
+}
+
+
+/* --------------------------------------------- */
+/* Ad card animation styles */
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+}
+
+.card {
+    width: 550px;
+    height: 350px;
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+}
+  
+.card-inner {
+    width: inherit;
+    height: inherit;
+    background: rgba(255,255,255,.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+}
+
+.card-contents {
+    padding: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-contents h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 32px;
+    transition: all 0.2s ease 0s;
+}
+
+.card-contents h2:hover {
+    color: #53ef7d;
+    transform: scale(1.1);
+}
+  
+.card:hover {
+    transform: scale(1.04) rotate(1deg);
+}
+
+.card-contents h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 1.3;
+    text-align: center;
+    margin-top: 20px;
+}
+  
+.circle {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(#b0e633, #53ef7d);
+    border-radius: 50%;
+    position: absolute;
+    animation: move-up6 2s ease-in infinite alternate-reverse;
+}
+  
+.circle:nth-child(1) {
+    top: -25px;
+    left: -25px;
+}
+  
+.circle:nth-child(2) {
+    bottom: -25px;
+    right: -25px;
+    animation-name: move-down1;
+}
+  
+@keyframes move-up6 {
+    to {
+      transform: translateY(-10px);
+    }
+}
+  
+@keyframes move-down1 {
+    to {
+      transform: translateY(10px);
+    }
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 55px;
+
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.btn {
+    width: 170px;
+    height: 60px;
+    font-size: 18px;
+    background: #53ef7d;
+    border: none;
+    border-radius: 50px;
+    color: #000;
+    outline: none;
+    cursor: pointer;
+    animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+    z-index: -2;
+}
+
+@keyframes glitch-it {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+    to {
+      transform: translate(0);
+    }
+}
